@@ -857,10 +857,10 @@ void BluetoothA2DPSink::previous(){
 }
 
 void BluetoothA2DPSink::vol_up(){
-    execute_avrc_command(ESP_AVRC_PT_CMD_VOL_UP);
+    // execute_avrc_command(ESP_AVRC_PT_CMD_VOL_UP);
 }
 void BluetoothA2DPSink::vol_down(){
-    execute_avrc_command(ESP_AVRC_PT_CMD_VOL_DOWN);
+    // execute_avrc_command(ESP_AVRC_PT_CMD_VOL_DOWN);
 }
 
 /**
