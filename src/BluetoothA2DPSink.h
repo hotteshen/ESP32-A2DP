@@ -140,6 +140,10 @@ class BluetoothA2DPSink {
     virtual void next();
     /// AVRC previouse
     virtual void previous();
+    /// AVRC volume up
+    virtual void vol_up();
+    /// AVRC volume down
+    virtual void vol_down();
     /// mix stereo into single mono signal
     virtual void set_mono_downmix(bool enabled) { mono_downmix = enabled; }
     /// Defines the bits per sample for output (if > 16 output will be expanded)
