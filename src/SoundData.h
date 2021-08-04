@@ -33,7 +33,7 @@ struct __attribute__((packed)) Channels {
   Channels(int v){
     channel1 = channel2 = v;
   }
-  
+
   Channels(){
     channel1 = channel2 = 0;
   }
@@ -42,7 +42,7 @@ struct __attribute__((packed)) Channels {
 
 /**
  * @brief Channel Information
- * 
+ *
  */
 enum ChannelInfo {
     Both,
@@ -52,9 +52,9 @@ enum ChannelInfo {
 
 
 /**
- * @brief Sound data as byte stream. We support TwoChannelSoundData (uint16_t + uint16_t) and 
- * OneChannelSoundData which stores the data as array of uint16_t 
- * We provide the complete sound data as a simple c array which 
+ * @brief Sound data as byte stream. We support TwoChannelSoundData (uint16_t + uint16_t) and
+ * OneChannelSoundData which stores the data as array of uint16_t
+ * We provide the complete sound data as a simple c array which
  * can be prepared e.g. in the following way
  *
  * - Open any sound file in Audacity. Make sure that it contains 2 channels
@@ -85,7 +85,7 @@ class SoundData {
 
 
 /**
- * @brief Data is provided in two channels of int16 data: so 
+ * @brief Data is provided in two channels of int16 data: so
  * len is in 4 byte entries (int16 + int16)
  */
 class TwoChannelSoundData : public SoundData {

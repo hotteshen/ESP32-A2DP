@@ -76,7 +76,7 @@ extern "C" void ccall_a2d_app_heart_beat(void *arg) {
 extern "C" void ccall_bt_app_a2d_cb(esp_a2d_cb_event_t event, esp_a2d_cb_param_t *param){
     if (self_BluetoothA2DPSource) self_BluetoothA2DPSource->bt_app_a2d_cb(event, param);
 }
-    
+
 extern "C" void ccall_bt_app_av_sm_hdlr(uint16_t event, void *param){
     if (self_BluetoothA2DPSource) self_BluetoothA2DPSource->bt_app_av_sm_hdlr(event, param);
 }
@@ -103,7 +103,7 @@ extern "C" int32_t ccall_get_channel_data_wrapper(uint8_t *data, int32_t len) {
 }
 
 extern "C" int32_t ccall_get_data_default(uint8_t *data, int32_t len) {
-    return self_BluetoothA2DPSource->get_data_default(data, len);   
+    return self_BluetoothA2DPSource->get_data_default(data, len);
 }
 
 
@@ -112,7 +112,7 @@ BluetoothA2DPSource::BluetoothA2DPSource() {
     self_BluetoothA2DPSource = this;
     this->ssp_enabled = false;
     this->pin_type = ESP_BT_PIN_TYPE_VARIABLE;
-    
+
     // default pin code
     strcpy((char*)pin_code, "1234");
     pin_code_len = 4;
@@ -124,7 +124,7 @@ BluetoothA2DPSource::BluetoothA2DPSource() {
     s_intv_cnt = 0;
     s_connecting_intv = 0;
     s_pkt_cnt = 0;
-    
+
     s_bt_app_task_queue = NULL;
     s_bt_app_task_handle = NULL;
 
@@ -905,14 +905,14 @@ int32_t BluetoothA2DPSource::get_data_default(uint8_t *data, int32_t len) {
         if (result_len<=0){
             if (sound_data->doLoop()){
                 ESP_LOGD(BT_APP_TAG, "x%x - end of data: restarting", __func__);
-                sound_data_current_pos = 0;            
+                sound_data_current_pos = 0;
             } else {
                 ESP_LOGD(BT_APP_TAG, "x%x - end of data: stopping", __func__);
                 has_sound_data = false;
             }
         }
     } else {
-        // return silence 
+        // return silence
         memset(data,0,len);
         result_len = len;
     }

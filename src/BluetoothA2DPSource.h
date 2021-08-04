@@ -41,7 +41,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <vector> 
+#include <vector>
 #include "BluetoothA2DPCommon.h"
 
 #include "esp32-hal-log.h"
@@ -58,11 +58,11 @@ typedef void (* bt_app_copy_cb_t) (app_msg_t *msg, void *p_dest, void *p_src);
 
 /**
  * @brief A2DP Bluetooth Source
- * 
+ *
  */
 
 class BluetoothA2DPSource {
-  public: 
+  public:
     /**
      * Constructor
      */
@@ -80,14 +80,14 @@ class BluetoothA2DPSource {
      * callback: function that provides the audio stream -
      * The supported audio codec in ESP32 A2DP is SBC. SBC audio stream is encoded
      * from PCM data normally formatted as 44.1kHz sampling rate, two-channel 16-bit sample data
-     * is_ssp_enabled: Flag to activate Secure Simple Pairing 
-     */ 
+     * is_ssp_enabled: Flag to activate Secure Simple Pairing
+     */
     virtual void startRaw(char* name, music_data_cb_t callback = NULL, bool is_ssp_enabled = false);
     virtual void startRaw(std::vector<char*> names, music_data_cb_t callback = NULL, bool is_ssp_enabled = false);
 
     /**
      * Defines the pin code. If nothing is defined we use "1234"
-     */ 
+     */
     virtual  void setPinCode(char* pin_code, esp_bt_pin_type_t pin_type=ESP_BT_PIN_TYPE_VARIABLE);
 
     /**
@@ -141,7 +141,7 @@ class BluetoothA2DPSource {
     music_data_channels_cb_t data_stream_channels_callback;
 
   protected:
-  
+
     bool ssp_enabled;
     char* bt_name;
     std::vector<char*> bt_names;
